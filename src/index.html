@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0">
+  </head>
+  <body>
+    <div id="motion">Not doing anything yet</div>
+    <div id="gyro">Not doing anything yet</div>
+    <div>Orientation: <span id="orientation"></span></div>
+    <button id="button">hey</button>
+    <script type="text/javascript">
+
+var socket = new WebSocket("ws://stagecast.se/api/events/team_phogg/ws")
+var motionElement = document.getElementById("motion");
+var gyroElement = document.getElementById("gyro");
+var orientationElement = document.getElementById("orientation");
+
+window.addEventListener('devicemotion', function(event) {
+  motionElement.innerHTML = event.acceleration.x + ' m/s2<br>' +
+    event.acceleration.y + " m/s2<br>" +
+    event.acceleration.z + " m/s2";
+});
+
+window.addEventListener("deviceorientation",  function(event) {
+  gyroElement.innerHTML = event.alpha + " deg<br>" +
+    event.beta + " deg<br>" +
+    event.gamma + " deg<br>";
+
+  if (event.beta > -45 && event.beta < 45) {
+    orientationElement.innerHTML = "up";
+  } else if (event.beta < -135 || event.beta > 135) {
+    orientationElement.innerHTML = "down";
+  } else {
+    orientationElement.innerHTML = "neutral";
+  }
+
+}, true);
+
+document.getElementById("button").addEventListener("click", function(event) {
+  socket.send(JSON.stringify({ message: 'hey' }))
+})
+
+    </script>
+  </body>
+</html>

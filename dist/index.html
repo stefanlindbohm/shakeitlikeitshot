@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <style type="text/css">
+html, body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #302683;
+  color: #fff;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  display: flex;
+    flex-wrap: wrap;
+  justify-content: center;
+}
+.page {
+  width: 80%;
+}
+
+.name-form {
+  margin-top: 40px;
+}
+.name-form > div {
+  left: 5px;
+  right: 5px;
+}
+
+.name-form > div > input {
+  border: 0;
+  border-radius: 0px;
+  width: 100%;
+  font-size: 30px;
+  height: 60px;
+    padding: 0;
+      text-align: center;
+  margin-top: 20px;
+}
+.name-form input[type=submit] {
+  background: rgb(188, 16, 1);
+  color: #fff;
+  font-weight: bold;
+  appearance: none;
+  -webkit-appearance: none;
+  box-shadow: 0px 0px 2px 2px rgba(188, 16, 1, 0.6);
+    font-size: 20px;
+}
+
+.colors {
+  display: flex;
+  flex-wrap: wrap;
+}
+.colors > div {
+  width: 50%;
+  padding-top: 50%;
+}
+
+.shake-text {
+    font-weight: bold;
+      font-size: 35px;
+        margin: 40px 20px 0;
+}
+    </style>
+  </head>
+  <body>
+    <!--
+    <div>UUID: <span id="uuid"></span></div>
+    <div>Upness: <span id="upness"></span></div>
+    <div>Acceleration X: <span id="acceleration-x"></span> m/s2</div>
+    <div>Acceleration Y: <span id="acceleration-y"></span> m/s2</div>
+    <div>Acceleration Z: <span id="acceleration-z"></span> m/s2</div>
+    <div>Velocity X: <span id="velocity-x"></span> m/s2</div>
+    <div>Velocity Y: <span id="velocity-y"></span> m/s2</div>
+    <div>Velocity Z: <span id="velocity-z"></span> m/s2</div>
+    <div>Direction: <span id="direction"></span></div>
+    -->
+    <div id="page-name" class="page">
+      <form id="name-form">
+        <div class="name-form">
+          <div>Enter your name and turn your phone face down to find your dot</div>
+          <div><input type="text" name="name"></div>
+          <div><input type="submit" value="Nice to meet you"></div>
+        </div>
+      </form>
+    </div>
+    <div class="shake-text">
+      Shake your phone, you're one of the dots!
+    </div>
+    <div id="page-color" class="page">
+          <div style="margin-top: 40px; margin-bottom: 40px">Change the color of your dot anytime you like!</div>
+          <div class="colors">
+      <div id="color-yellow" style="background: #ffed00"></div>
+      <div id="color-red" style="background: #be1621"></div>
+      <div id="color-cyan" style="background: #36a9e0"></div>
+      <div id="color-purple-blue" style="background: #27348a"></div>
+          </div>
+    </div>
+    <script type="text/javascript" src="bundle.js"></script>
+    <script type="text/javascript">
+new App({
+  "uuid": document.getElementById("uuid"),
+  "upness": document.getElementById("upness"),
+  "acceleration-x": document.getElementById("acceleration-x"),
+  "acceleration-z": document.getElementById("acceleration-z"),
+  "acceleration-y": document.getElementById("acceleration-y"),
+  "velocity-x": document.getElementById("velocity-x"),
+  "velocity-z": document.getElementById("velocity-z"),
+  "velocity-y": document.getElementById("velocity-y"),
+  "direction": document.getElementById("direction"),
+  "page-name": document.getElementById("page-name"),
+  "page-color": document.getElementById("page-color"),
+  "name-form": document.getElementById("name-form"),
+  "color-yellow": document.getElementById("color-yellow"),
+  "color-red": document.getElementById("color-red"),
+  "color-cyan": document.getElementById("color-cyan"),
+  "color-purple-blue": document.getElementById("color-purple-blue"),
+});
+    </script>
+  </body>
+</html>
